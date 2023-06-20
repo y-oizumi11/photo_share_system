@@ -4,6 +4,7 @@
 
 <c:set var="actImg" value="${ForwardConst.ACT_IMG.getValue()}" />
 <c:set var="commUpd" value="${ForwardConst.CMD_UPDATE.getValue()}" />
+<c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
@@ -15,7 +16,7 @@
         <br /><br />
 
         <p>
-            <a href="<c:url value='?action=Image&command=index' />">一覧に戻る</a>
+            <a href="<c:url value='?action=${actImg}&command=${commIdx}' />">一覧に戻る</a>
         </p>
     </c:param>
 </c:import>

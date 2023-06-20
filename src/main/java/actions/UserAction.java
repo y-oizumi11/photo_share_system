@@ -92,8 +92,10 @@ public class UserAction extends ActionBase {
     }
 
     public void edit() throws ServletException, IOException{
+
         UserView uv = service.findOne(toNumber(getRequestParam(AttributeConst.U_ID)));
-        if(uv == null || uv.getDeleteFlag() == AttributeConst.DEL_FLAG_TRUE.getIntegerValue()) {
+
+          if(uv == null || uv.getDeleteFlag() == AttributeConst.DEL_FLAG_TRUE.getIntegerValue()) {
             forward(ForwardConst.FW_ERR_UNKNOWN);
             return;
         }
@@ -102,6 +104,7 @@ public class UserAction extends ActionBase {
         putRequestScope(AttributeConst.USER, uv);
 
         forward(ForwardConst.FW_U_EDIT);
+
     }
 
     public void update() throws ServletException, IOException{
@@ -131,11 +134,26 @@ public class UserAction extends ActionBase {
     }
 
     public void destroy() throws ServletException, IOException{
-        if(checkToken()) {
+        if(checkToken() && checkAdmin()) {
             service.destroy(toNumber(getRequestParam(AttributeConst.U_ID)));
             putSessionScope(AttributeConst.FLUSH, MessageConst.I_DELETED.getMessage());
             redirect(ForwardConst.ACT_USER, ForwardConst.CMD_INDEX);
         }
+    }
+
+    private boolean checkAdmin() throws ServletException, IOException {
+
+        UserView uv = (UserView) getSessionScope(AttributeConst.LOGIN_USER);
+
+        if (uv.getAdminFlag() == AttributeConst.ROLE_ADMIN.getIntegerValue()) {
+
+            return true;
+
+        }else {
+            forward(ForwardConst.FW_ERR_UNKNOWN);
+            return false;
+        }
+
     }
 
 }

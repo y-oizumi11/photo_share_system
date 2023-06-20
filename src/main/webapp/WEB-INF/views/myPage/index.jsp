@@ -4,7 +4,7 @@
 <%@ page import="constants.ForwardConst" %>
 
 <c:set var="actTop" value="${ForwardConst.ACT_TOP.getValue()}" />
-<c:set var="actUSER" value="${ForwardConst.ACT_USER.getValue()}" />
+<c:set var="actUser" value="${ForwardConst.ACT_USER.getValue()}" />
 <c:set var="actImg" value="${ForwardConst.ACT_IMG.getValue()}" />
 
 <c:set var="commShow" value="${ForwardConst.CMD_SHOW.getValue()}" />
@@ -18,7 +18,7 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>ようこそ</h2>
+        <h2><c:out value="${sessionScope.login_user.code}" />さんのMy Page</h2>
         <h3>【投稿画像 一覧】</h3>
 
 
@@ -35,6 +35,8 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='?action=${actRep}&command=${commNew}' />">新規画像の投稿</a></p>
+        <c:if test="${sessionScope.login_user.id == image.user.id}">
+        <p><a href="<c:url value='?action=${actImg}&command=${commNew}' />">新規画像の投稿</a></p>
+        </c:if>
     </c:param>
 </c:import>

@@ -1,4 +1,4 @@
- Compiled class file
+# Compiled class file
 *.class
 
 # Package Files #
@@ -20,4 +20,4 @@ Thumbs.db
 .DS_Store
 
 # Application Properties
-src/application.properties
+src/main/application.properties
