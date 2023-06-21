@@ -12,6 +12,7 @@
 
     </div>
 </c:if>
+<form action="/photo_share_system/ImageAction/" method="post" enctype="multipart/form-data">
 <fmt:parseDate value="${image.image_date}" pattern="yyyy-MM-dd" var="imageDay" type="date" />
 <label for="${AttributeConst.IMG_DATE.getValue()}">日付</label><br />
 <input type="date" name="${AttributeConst.IMG_DATE.getValue()}" id="${AttributeConst.IMG_DATE.getValue()}" value="<fmt:formatDate value='${imageDay}' pattern='yyyy-MM-dd' />" />
@@ -25,8 +26,8 @@
 <input type="text" name="${AttributeConst.IMG_TITLE.getValue()}" id="${AttributeConst.IMG_TITLE.getValue()}" value="${image.title}" />
 <br /><br />
 
-<label for="${AttributeConst.IMF_ADDRESS.getValue()}">画像</label>
-<input type="file" name="${AttributeConst.IMF_ADDRESS.getValue()}" id="${AttributeConst.IMF_ADDRESS.getValue()}" value="${image.address}" />
+<label for="${AttributeConst.IMG_ADDRESS.getValue()}">画像</label>
+<input type="file" name="${AttributeConst.IMG_ADDRESS.getValue()}" id="${AttributeConst.IMG_ADDRESS.getValue()}" value="${image.address}" />
 
 <label for="${AttributeConst.IMG_CONTENT.getValue()}">コメント</label><br />
 <textarea  name="${AttributeConst.IMG_CONTENT.getValue()}" id="${AttributeConst.IMG_CONTENT.getValue()}" rows="10" cols="50">${image.content}</textarea>
@@ -34,3 +35,4 @@
 <input type="hidden" name="${AttributeConst.IMG_ID.getValue()}" value="${image.id}" />
 <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
 <button type="submit">投稿</button>
+</form>

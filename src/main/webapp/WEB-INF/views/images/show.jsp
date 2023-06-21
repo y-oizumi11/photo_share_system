@@ -13,8 +13,9 @@
     <c:param name="content">
 
         <h2>画像 詳細ページ</h2>
+           <p><img alt="投稿画像" src="/upload/${img.address}"></p>
            <p>ユーザー</p>
-           <p><c:out value="${report.user.code}" /></p>
+           <p><c:out value="${image.user.code}" /></p>
            <br/><br/>
            <p>コメント</p>
            <p><c:out value="${image.content}" /></p>

@@ -10,7 +10,7 @@
     <c:param name="content">
         <h2>画像投稿ページ</h2>
 
-        <form method="POST" action="<c:url value='?action=${action}&command=${commCrt}' />" enctype="multipart/form-data">
+        <form method="POST" action="<c:url value='?action=${action}&command=${commCrt}' />" >
             <c:import url="_form.jsp" />
         </form>
 

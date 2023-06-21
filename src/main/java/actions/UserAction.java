@@ -41,10 +41,8 @@ public class UserAction extends ActionBase {
     }
 
    public void entryNew() throws ServletException, IOException {
-            putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
-            putRequestScope(AttributeConst.USER, new UserView()); //空の従業員インスタンス
-
-            //新規登録画面を表示
+            putRequestScope(AttributeConst.TOKEN, getTokenId());
+            putRequestScope(AttributeConst.USER, new UserView());
             forward(ForwardConst.FW_U_NEW);
         }
 

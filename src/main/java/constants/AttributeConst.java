@@ -44,7 +44,7 @@ public enum AttributeConst {
     IMG_ID("id"),
     IMG_DATE("image_date"),
     IMG_TITLE("title"),
-    IMG_ADRESS("adress"),
+    IMG_ADDRESS("address"),
     IMG_CONTENT("content_msg");
 
     private final String text;

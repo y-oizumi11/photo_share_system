@@ -19,8 +19,20 @@
             </div>
         </c:if>
         <h2><c:out value="${sessionScope.login_user.code}" />さんのMy Page</h2>
-        <h3>【投稿画像 一覧】</h3>
-
+        <h3>【自分の投稿画像 一覧】</h3>
+        <table id="report_list">
+            <tbody>
+                <c:forEach var="image" items="${images}" varStatus="status">
+                    <fmt:parseDate value="${image.imageDate}" pattern="yyyy-MM-dd" var="imageDay" type="date" />
+                     <tr class="row${status.count % 2}">
+                        <td class= "image_address"><img src="/upload/${image.address}"></td>
+                        <td class="image_code"><c:out value="${image.user.code}" /></td>
+                        <td class="image_title">${image.title}</td>
+                        <td class="image_action"><a href="<c:url value='?action=${actImg}&command=${commShow}&id=${image.id}' />">詳細を見る</a></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
 
         <div id="pagination">
             （全 ${image_count} 件）<br />

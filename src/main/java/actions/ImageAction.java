@@ -70,7 +70,7 @@ public class ImageAction extends ActionBase {
                     uv,
                     getRequestParam(AttributeConst.IMG_TITLE),
                     getRequestParam(AttributeConst.IMG_CONTENT),
-                    getRequestParam(AttributeConst.IMG_ADRESS),
+                    getRequestParam(AttributeConst.IMG_ADDRESS),
                     day
                     );
 
