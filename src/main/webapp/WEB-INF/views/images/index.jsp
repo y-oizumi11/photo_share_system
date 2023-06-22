@@ -16,26 +16,19 @@
             </div>
         </c:if>
         <h2>画像　一覧</h2>
-   <table id="image_list">
-            <tbody>
-                <tr>
-                    <th class="image_code">ユーザー名</th>
-                    <th class="image_date">日付</th>
-                    <th class="image_action">詳細</th>
-                    <th class="image_title">タイトル</th>
-                </tr>
-                <c:forEach var="image" items="${images}" varStatus="status">
+        <tbody>
+        <c:forEach var="image" items="${images}" varStatus="status">
                     <fmt:parseDate value="${image.imageDate}" pattern="yyyy-MM-dd" var="imageDay" type="date" />
 
                     <tr class="row${status.count % 2}">
-                        <td class="image_name"><c:out value="${image.user.code}" /></td>
-                        <td class="image_date"><fmt:formatDate value='${imageDay}' pattern='yyyy-MM-dd' /></td>
+                        <td class= "image_address"><img src="/upload/${image.address}"></td>
+                        <td class="image_code"><c:out value="${image.user.code}" /></td>
                         <td class="image_title">${image.title}</td>
-                        <td class="image_action"><a href="<c:url value='?action=${actRep}&command=${commShow}&id=${image.id}' />">詳細を見る</a></td>
+                        <td class="image_action"><a href="<c:url value='?action=${actImg}&command=${commShow}&id=${image.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
-            </tbody>
-        </table>
+         </tbody>
+
 
         <div id="pagination">
             （全 ${images_count} 件）<br />
@@ -50,7 +43,8 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='?action=${actImg}&command=${commNew}' />">新規画像の投稿</a></p>
+        <p><a href="<c:url value='?action=${actImg}&command=${commNew}' />">画像の投稿</a></p>
+
 
     </c:param>
 </c:import>
