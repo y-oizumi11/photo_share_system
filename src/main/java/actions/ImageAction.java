@@ -75,14 +75,14 @@ public class ImageAction extends ActionBase {
                     );
 
             List<String> errors = service.create(iv);
-            
+
             if(errors.size() > 0) {
                 putRequestScope(AttributeConst.TOKEN, getTokenId());
                 putRequestScope(AttributeConst.IMAGE, iv);
                 putRequestScope(AttributeConst.ERR, errors);
 
                 forward(ForwardConst.FW_IMG_NEW);
-                
+
             }else {
                 putSessionScope(AttributeConst.FLUSH, MessageConst.I_REGISTERED.getMessage());
 
@@ -93,7 +93,7 @@ public class ImageAction extends ActionBase {
 
     public void show() throws ServletException, IOException{
         ImageView iv = service.findOne(toNumber(getRequestParam(AttributeConst.IMG_ID)));
-        
+
         if(iv == null) {
             forward(ForwardConst.FW_ERR_UNKNOWN);
         }else {

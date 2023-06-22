@@ -12,7 +12,9 @@ import constants.ForwardConst;
 import constants.JpaConst;
 import services.ImageService;
 
-public class MyPageAction extends ActionBase {
+
+public class TopAction extends ActionBase {
+
     private ImageService service;
 
     @Override
@@ -23,24 +25,29 @@ public class MyPageAction extends ActionBase {
         invoke();
 
         service.close();
+
     }
 
-    public void index() throws ServletException, IOException{
+    public void index() throws ServletException, IOException {
+
         UserView loginUser = (UserView) getSessionScope(AttributeConst.LOGIN_USER);
+
         int page = getPage();
         List<ImageView> images = service.getMinePerPage(loginUser, page);
-        long myImageCount = service.countAllMine(loginUser);
+
+        long myImagesCount = service.countAllMine(loginUser);
 
         putRequestScope(AttributeConst.IMAGES, images);
-        putRequestScope(AttributeConst.IMG_COUNT, myImageCount);
+        putRequestScope(AttributeConst.IMG_COUNT, myImagesCount);
         putRequestScope(AttributeConst.PAGE, page);
         putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE);
 
         String flush = getSessionScope(AttributeConst.FLUSH);
-        if(flush != null) {
+        if (flush != null) {
             putRequestScope(AttributeConst.FLUSH, flush);
             removeSessionScope(AttributeConst.FLUSH);
         }
+
         forward(ForwardConst.FW_TOP_INDEX);
     }
 
