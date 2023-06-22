@@ -12,7 +12,7 @@ public class ImageConverter {
                 UserConverter.toModel(iv.getUser()),
                 iv.getTitle(),
                 iv.getComment(),
-                iv.getAdress(),
+                iv.getAddress(),
                 iv.getCreated_at()
                 );
     }
@@ -27,7 +27,7 @@ public class ImageConverter {
                 UserConverter.toView(i.getUser()),
                 i.getTitle(),
                 i.getComment(),
-                i.getAdress(),
+                i.getAddress(),
                 i.getCreated_at()
                 );
     }
@@ -47,7 +47,7 @@ public class ImageConverter {
         i.setUser(UserConverter.toModel(iv.getUser()));
         i.setTitle(iv.getTitle());
         i.setComment(iv.getComment());
-        i.setAdress(iv.getAdress());
+        i.setAddress(iv.getAddress());
         i.setCreated_at(iv.getCreated_at());
     }
 

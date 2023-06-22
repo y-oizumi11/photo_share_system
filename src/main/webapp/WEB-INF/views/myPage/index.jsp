@@ -6,7 +6,6 @@
 <c:set var="actTop" value="${ForwardConst.ACT_TOP.getValue()}" />
 <c:set var="actUser" value="${ForwardConst.ACT_USER.getValue()}" />
 <c:set var="actImg" value="${ForwardConst.ACT_IMG.getValue()}" />
-
 <c:set var="commShow" value="${ForwardConst.CMD_SHOW.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commNew" value="${ForwardConst.CMD_NEW.getValue()}" />
@@ -18,10 +17,17 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2><c:out value="${sessionScope.login_user.code}" />さんのMy Page</h2>
-        <h3>【自分の投稿画像 一覧】</h3>
+        <h2>My Page</h2>
+        <h3>【投稿画像 一覧】</h3>
         <table id="report_list">
             <tbody>
+              <tr>
+                <th class="image_address"></th>
+                <th class= "image_code">ユーザー名</th>
+                <th class = "image_title">タイトル</th>
+                <th class="image_action">詳細</th>
+              </tr>
+
                 <c:forEach var="image" items="${images}" varStatus="status">
                     <fmt:parseDate value="${image.imageDate}" pattern="yyyy-MM-dd" var="imageDay" type="date" />
                      <tr class="row${status.count % 2}">
@@ -47,8 +53,7 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <c:if test="${sessionScope.login_user.id == image.user.id}">
         <p><a href="<c:url value='?action=${actImg}&command=${commNew}' />">新規画像の投稿</a></p>
-        </c:if>
+
     </c:param>
 </c:import>

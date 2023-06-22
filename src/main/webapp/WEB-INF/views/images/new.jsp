@@ -2,15 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="constants.ForwardConst" %>
 
-<c:set var="action" value="${ForwardConst.ACT_IMG.getValue()}" />
+<c:set var="action" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commCrt" value="${ForwardConst.CMD_CREATE.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
-        <h2>画像投稿ページ</h2>
+        <h2>日報 新規登録ページ</h2>
 
-        <form method="POST" action="<c:url value='?action=${action}&command=${commCrt}' />" >
+        <form method="POST" action="<c:url value='?action=${action}&command=${commCrt}' />">
             <c:import url="_form.jsp" />
         </form>
 

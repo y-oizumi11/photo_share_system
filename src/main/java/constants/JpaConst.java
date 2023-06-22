@@ -30,7 +30,7 @@ public interface JpaConst {
     String IMG_COL_U = "user_id"; //写真を投稿したユーザーのid
     String IMG_COL_TITLE = "title"; //画像のタイトル
     String IMG_COL_COMMENT = "comment"; //画像へのコメント
-    String IMG_COL_ADRESS = "adress"; //画像の場所
+    String IMG_COL_ADDRESS = "address"; //画像の場所
     String IMG_COL_CREATED_AT = "created_at"; //投稿日時
 
     //Entity名

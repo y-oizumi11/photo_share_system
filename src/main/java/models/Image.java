@@ -59,8 +59,8 @@ public class Image {
     @Column(name = JpaConst.IMG_COL_COMMENT, nullable = false)
     private String comment;
 
-    @Column(name = JpaConst.IMG_COL_ADRESS, nullable = false)
-    private String adress;
+    @Column(name = JpaConst.IMG_COL_ADDRESS, nullable = false)
+    private String address;
 
     @Column(name = JpaConst.IMG_COL_CREATED_AT, nullable = false)
     private LocalDateTime created_at;

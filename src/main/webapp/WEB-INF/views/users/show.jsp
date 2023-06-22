@@ -11,32 +11,32 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
 
-        <h2>id : ${user.id} のアカウント 詳細ページ</h2>
+        <h2> ${user.code} のアカウント 詳細ページ</h2>
+            <div>
+              <p>ユーザーID</p>
+              <p><c:out value="${user.code}" /></p>
+            </div>
 
-        <table>
-            <tbody>
-                <tr>
-                    <th>ユーザーID</th>
-                    <td><c:out value="${user.code}" /></td>
-                </tr>
-                <tr>
-                    <th>氏名</th>
-                    <td><c:out value="${user.name}" /></td>
-                </tr>
-                <tr>
-                    <th>アカウントの種類</th>
-                    <td><c:choose>
-                            <c:when test="${employee.adminFlag == AttributeConst.ROLE_ADMIN.getIntegerValue()}">管理者</c:when>
-                            <c:otherwise>一般会員</c:otherwise>
-                        </c:choose></td>
-                </tr>
-            </tbody>
-        </table>
+             <div>
+                <c:if test="${user.id == AttributeConst.U_ID}">
+                    <p>氏名</p>
+                    <p><c:out value="${user.name}" /></p>
+                 </c:if>
+                 </div>
 
+              <div>
+                <p>アカウントの種類</p>
+                  <c:choose>
+                    <c:when test="${user.adminFlag == AttributeConst.ROLE_ADMIN.getIntegerValue()}">管理者</c:when>
+                    <c:otherwise>一般会員</c:otherwise>
+                   </c:choose>
+              </div>
+
+         <c:if test="${user.id == AttributeConst.U_ID}">
         <p>
             <a href="<c:url value='?action=${actUser}&command=${commEdit}&id=${user.id}' />">このユーザー情報を編集する</a>
         </p>
-
+        </c:if>
         <p>
             <a href="<c:url value='?action=${actUser}&command=${commIdx}' />">トップページに戻る</a>
         </p>

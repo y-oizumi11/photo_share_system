@@ -20,7 +20,7 @@ public class ImageValidator {
             errors.add(commentError);
         }
 
-        String addressError = validateAddress(iv.getAdress());
+        String addressError = validateAddress(iv.getAddress());
         if(!addressError.equals("")) {
             errors.add(addressError);
         }

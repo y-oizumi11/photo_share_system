@@ -27,13 +27,13 @@
    <div id="wrapper">
         <div id="header">
             <div id="header_menu">
-                <h1><a href="<c:url value='/?action=${actTop}&command=${commIdx}' />">Photo Share System</a></h1>&nbsp;&nbsp;&nbsp;
+                <h1><a href="<c:url value='/?action=${actImg}&command=${commIdx}' />">Photo Share System</a></h1>&nbsp;&nbsp;&nbsp;
                 <c:choose>
                 <c:when test="${sessionScope.login_user != null}">
                     <c:if test="${sessionScope.login_user.adminFlag == AttributeConst.ROLE_ADMIN.getIntegerValue()}">
                         <a href="<c:url value='?action=${actUser}&command=${commIdx}' />">ユーザー管理</a>&nbsp;
                     </c:if>
-                    <a href="<c:url value='?action=${actImg}&command=${commIdx}' />">My page</a>&nbsp;
+                    <a href="<c:url value='?action=${actTop}&command=${commIdx}' />">My page</a>&nbsp;
                 </c:when>
                 <c:otherwise>
                  <a href="<c:url value='?action=${actAuth}&command=${commIn}' />">ログイン</a>&nbsp;

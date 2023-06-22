@@ -21,7 +21,7 @@ public class ImageView {
 
     private String comment;
 
-    private String adress;
+    private String address;
 
     private LocalDateTime created_at;
 }

@@ -12,7 +12,7 @@ import constants.ForwardConst;
 import constants.JpaConst;
 import services.ImageService;
 
-public class TopAction extends ActionBase {
+public class MyPageAction extends ActionBase {
     private ImageService service;
 
     @Override
