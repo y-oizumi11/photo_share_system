@@ -1,6 +1,6 @@
 package models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,6 +63,6 @@ public class Image {
     private String address;
 
     @Column(name = JpaConst.IMG_COL_CREATED_AT, nullable = false)
-    private LocalDateTime created_at;
+    private LocalDate created_at;
 
 }

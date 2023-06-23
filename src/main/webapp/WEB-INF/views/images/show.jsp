@@ -22,12 +22,12 @@
                 </tr>
                 <tr>
                     <th>コメント</th>
-                    <td><pre><c:out value="${image.content}" /></pre></td>
+                    <td><pre><c:out value="${image.comment}" /></pre></td>
                 </tr>
                 <tr>
                     <th>投稿日時</th>
-                    <fmt:parseDate value="${image.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="createDay" type="date" />
-                    <td><fmt:formatDate value="${createDay}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+                    <fmt:parseDate value="${image.created_at}" pattern="yyyy-MM-dd" var="created_at" type="date" />
+                    <td><fmt:formatDate value="${created_at}" pattern="yyyy-MM-dd" /></td>
                 </tr>
             </tbody>
         </table>

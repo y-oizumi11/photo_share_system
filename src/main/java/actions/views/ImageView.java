@@ -1,6 +1,6 @@
 package actions.views;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,5 +23,5 @@ public class ImageView {
 
     private String address;
 
-    private LocalDateTime created_at;
+    private LocalDate created_at;
 }

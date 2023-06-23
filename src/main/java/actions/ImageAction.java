@@ -1,7 +1,7 @@
 package actions;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -47,7 +47,7 @@ public class ImageAction extends ActionBase {
     public void entryNew() throws ServletException, IOException{
         putRequestScope(AttributeConst.TOKEN, getTokenId());
         ImageView iv = new ImageView();
-        iv.setCreated_at(LocalDateTime.now());
+        iv.setCreated_at(LocalDate.now());
         putRequestScope(AttributeConst.IMAGE, iv);
 
         forward(ForwardConst.FW_IMG_NEW);
@@ -55,12 +55,12 @@ public class ImageAction extends ActionBase {
 
     public void create() throws ServletException, IOException{
         if(checkToken()) {
-            LocalDateTime day = null;
+            LocalDate day = null;
             if(getRequestParam(AttributeConst.IMG_DATE) == null
                     || getRequestParam(AttributeConst.IMG_DATE).equals("")) {
-                day = LocalDateTime.now();
+                day = LocalDate.now();
             }else {
-                day = LocalDateTime.parse(getRequestParam(AttributeConst.IMG_DATE));
+                day = LocalDate.parse(getRequestParam(AttributeConst.IMG_DATE));
             }
 
             UserView uv = (UserView) getSessionScope(AttributeConst.LOGIN_USER);
@@ -69,7 +69,7 @@ public class ImageAction extends ActionBase {
                     null,
                     uv,
                     getRequestParam(AttributeConst.IMG_TITLE),
-                    getRequestParam(AttributeConst.IMG_CONTENT),
+                    getRequestParam(AttributeConst.IMG_COMMENT),
                     getRequestParam(AttributeConst.IMG_ADDRESS),
                     day
                     );
@@ -120,7 +120,7 @@ public class ImageAction extends ActionBase {
             ImageView iv = service.findOne(toNumber(getRequestParam(AttributeConst.U_ID)));
 
             iv.setTitle(getRequestParam(AttributeConst.IMG_TITLE));
-            iv.setComment(getRequestParam(AttributeConst.IMG_CONTENT));
+            iv.setComment(getRequestParam(AttributeConst.IMG_COMMENT));
 
             List<String> errors = service.update(iv);
 

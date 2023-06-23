@@ -1,6 +1,6 @@
 package services;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import actions.views.ImageConverter;
@@ -50,7 +50,7 @@ public class ImageService extends ServiceBase {
     public List<String> create(ImageView iv){
         List<String> errors = ImageValidator.validate(iv);
         if(errors.size() == 0) {
-            LocalDateTime ldt = LocalDateTime.now();
+            LocalDate ldt = LocalDate.now();
             iv.setCreated_at(ldt);
             createInternal(iv);
         }

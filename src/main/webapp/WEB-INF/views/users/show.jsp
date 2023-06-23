@@ -17,13 +17,6 @@
               <p><c:out value="${user.code}" /></p>
             </div>
 
-             <div>
-                <c:if test="${user.id == AttributeConst.U_ID}">
-                    <p>氏名</p>
-                    <p><c:out value="${user.name}" /></p>
-                 </c:if>
-                 </div>
-
               <div>
                 <p>アカウントの種類</p>
                   <c:choose>
@@ -32,11 +25,9 @@
                    </c:choose>
               </div>
 
-         <c:if test="${user.id == AttributeConst.U_ID}">
         <p>
             <a href="<c:url value='?action=${actUser}&command=${commEdit}&id=${user.id}' />">このユーザー情報を編集する</a>
         </p>
-        </c:if>
         <p>
             <a href="<c:url value='?action=${actUser}&command=${commIdx}' />">トップページに戻る</a>
         </p>
