@@ -65,4 +65,6 @@ public class Image {
     @Column(name = JpaConst.IMG_COL_CREATED_AT, nullable = false)
     private LocalDate created_at;
 
+    @Column(name = JpaConst.IMG_COL_FILEPATH, nullable = false)
+    private String filePath;
 }

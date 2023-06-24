@@ -13,7 +13,8 @@ public class ImageConverter {
                 iv.getTitle(),
                 iv.getComment(),
                 iv.getAddress(),
-                iv.getCreated_at()
+                iv.getCreated_at(),
+                iv.getFilePath()
                 );
     }
 
@@ -28,7 +29,8 @@ public class ImageConverter {
                 i.getTitle(),
                 i.getComment(),
                 i.getAddress(),
-                i.getCreated_at()
+                i.getCreated_at(),
+                i.getFilePath()
                 );
     }
 
@@ -49,6 +51,7 @@ public class ImageConverter {
         i.setComment(iv.getComment());
         i.setAddress(iv.getAddress());
         i.setCreated_at(iv.getCreated_at());
+        i.setFilePath(iv.getFilePath());
     }
 
 }

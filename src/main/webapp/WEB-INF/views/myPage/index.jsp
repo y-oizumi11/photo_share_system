@@ -25,7 +25,7 @@
                 <c:forEach var="image" items="${images}" varStatus="status">
                     <fmt:parseDate value="${image.created_at}" pattern="yyyy-MM-dd" var="create_at" type="date" />
                      <tr class="row${status.count % 2}">
-                        <td class= "image_address"><img src="/upload/${image.address}"></td>
+                        <td class= "image_address"><img src="/upload/${image.filePath}"></td>
                         <td class="image_code"><c:out value="${image.user.code}" /></td>
                         <td class="image_title">${image.title}</td>
                         <td class="image_action"><a href="<c:url value='?action=${actImg}&command=${commShow}&id=${image.id}' />">詳細を見る</a></td>

@@ -24,4 +24,6 @@ public class ImageView {
     private String address;
 
     private LocalDate created_at;
+
+    private String filePath;
 }

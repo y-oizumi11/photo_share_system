@@ -31,6 +31,10 @@
                 </tr>
             </tbody>
         </table>
+
+                 <th>画像</th>
+                 <img class="uploadFile" src="<c:url value="/upload/${image.filePath}" />" />
+
             <c:if test="${sessionScope.login_user.id == image.user.id}">
             <p>
                 <a href="<c:url value='?action=${actImg}&command=${commEdt}&id=${image.id}' />">この投稿を編集する</a>

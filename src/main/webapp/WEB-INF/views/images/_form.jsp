@@ -12,6 +12,7 @@
 
     </div>
 </c:if>
+<form action= "/ImageCreateController" method="post" enctype="multipart/form-data">
 <fmt:parseDate value="${image.created_at}" pattern="yyyy-MM-dd" var="created_at" type="date" />
 <label for="${AttributeConst.IMG_DATE.getValue()}">日付</label><br />
 <input type="date" name="${AttributeConst.IMG_DATE.getValue()}" id="${AttributeConst.IMG_DATE.getValue()}" value="<fmt:formatDate value='${created_at}' pattern='yyyy-MM-dd' />" />
@@ -22,7 +23,7 @@
 <br /><br />
 
 <label for="${AttributeConst.IMG_ADDRESS.getValue()}">画像</label><br />
-<input type="text" name="${AttributeConst.IMG_ADDRESS.getValue()}" id="${AttributeConst.IMG_ADDRESS.getValue()}" value="${image.address}" />
+<input type="file" name="${AttributeConst.IMG_ADDRESS.getValue()}" id="${AttributeConst.IMG_ADDRESS.getValue()}" value="${image.address}" />
 <br /><br />
 
 <label for="${AttributeConst.IMG_TITLE.getValue()}">タイトル</label><br />
@@ -35,3 +36,4 @@
 <input type="hidden" name="${AttributeConst.IMG_ID.getValue()}" value="${image.id}" />
 <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
 <button type="submit">投稿</button>
+</form>

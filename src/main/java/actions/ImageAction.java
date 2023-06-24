@@ -71,7 +71,8 @@ public class ImageAction extends ActionBase {
                     getRequestParam(AttributeConst.IMG_TITLE),
                     getRequestParam(AttributeConst.IMG_COMMENT),
                     getRequestParam(AttributeConst.IMG_ADDRESS),
-                    day
+                    day,
+                    getRequestParam(AttributeConst.IMG_ADDRESS)
                     );
 
             List<String> errors = service.create(iv);
